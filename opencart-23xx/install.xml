@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Assign Permission to HuntBee Productivity Apps</name>
+    <version>1.0</version>
+    <author>HuntBee OpenCart Services</author>
+    <link>http://www.huntbee.com</link>
+	<code>huntbee_assign_apps_permission</code>
+				
+    <file path="admin/controller/startup/permission.php">
+    	<operation>
+            <search><![CDATA['extension/payment',]]></search>
+            <add position="replace"><![CDATA['extension/payment','extension/hbapps',]]></add>
+        </operation>
+    </file>
+</modification>
+		
