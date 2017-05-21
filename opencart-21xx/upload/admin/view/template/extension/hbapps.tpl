@@ -45,7 +45,6 @@
                   <a onclick="confirm('<?php echo $text_confirm; ?>') ? location.href='<?php echo $extension['uninstall']; ?>' : false;" data-toggle="tooltip" title="<?php echo $button_uninstall; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
                   <?php } ?></td>
               </tr>
-              <?php } ?>
               
               <?php if ($extension['installed']) { ?>
               <?php foreach ($extension['store'] as $store) { ?>
@@ -55,7 +54,7 @@
               </tr>
               <?php } ?>
               <?php } ?>
-                            
+              <?php } ?>
               <?php } else { ?>
               <tr>
                 <td class="text-center" colspan="2"><?php echo $text_no_results; ?></td>
