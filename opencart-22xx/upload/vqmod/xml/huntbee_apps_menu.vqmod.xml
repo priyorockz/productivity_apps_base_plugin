@@ -1,0 +1,40 @@
+<modification>
+	<id>HUNTBEE SNIPPET ADMIN MENU</id>
+	<version>6.0</version>
+	<vqmver>2.X</vqmver>
+	<author>WWW.HUNTBEE.COM</author>
+			
+	<!-- MENU LINK ADMIN -->
+		<!-- MENU LINKS -->
+	 	 <file name="admin/controller/common/menu.php">
+            <operation error="skip">
+                <search position="after"><![CDATA[$data['feed'] = $this->url->link('extension/feed', 'token=' . $this->session->data['token'], true);]]></search>
+                <add><![CDATA[$data['apps_link'] = $this->url->link('extension/hbapps', 'token=' . $this->session->data['token'], true);]]></add>
+            </operation>
+			<operation error="skip">
+                <search position="after"><![CDATA[$data['feed'] = $this->url->link('extension/feed', 'token=' . $this->session->data['token'], 'SSL');]]></search>
+                <add><![CDATA[$data['apps_link'] = $this->url->link('extension/hbapps', 'token=' . $this->session->data['token'], 'SSL');]]></add>
+            </operation>
+			
+			<operation error="log">
+                <search position="after"><![CDATA[$data['text_feed'] = $this->language->get('text_feed');]]></search>
+                <add><![CDATA[$data['text_apps'] = $this->language->get('text_apps');]]></add>
+            </operation>
+        </file>		
+		
+		<file name="admin/language/*/common/menu.php">
+            <operation error="log">
+                <search position="before"><![CDATA[$_['text_feed']]]></search>
+                <add><![CDATA[$_['text_apps']                        = 'Productivity Apps';]]></add>
+            </operation>
+        </file>
+		
+		<file name="admin/view/template/common/menu.tpl">
+            <operation error="log">
+                <search position="after"><![CDATA[<li><a href="<?php echo $feed; ?>"><?php echo $text_feed; ?></a></li>]]>
+                </search>
+                <add><![CDATA[<li><a href="<?php echo $apps_link; ?>"><?php echo $text_apps; ?></a></li>]]>
+                </add>
+            </operation>
+        </file>
+</modification>
